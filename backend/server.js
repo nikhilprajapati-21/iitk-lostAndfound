@@ -26,3 +26,10 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+
+app.get("/test-env", (req, res) => {
+    res.json({
+        emailUser: process.env.EMAIL_USER || null,
+        hasPassword: !!process.env.EMAIL_PASS,
+    });
+});
